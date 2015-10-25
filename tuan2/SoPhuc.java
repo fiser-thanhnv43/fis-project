@@ -1,4 +1,4 @@
-package tuan2;
+
 import java.math.*;
 
 public class SoPhuc {

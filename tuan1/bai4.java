@@ -1,4 +1,4 @@
-package tuan1;
+
 
 public class bai4 {
 	public static void main(String[] args){

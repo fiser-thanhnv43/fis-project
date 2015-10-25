@@ -1,4 +1,4 @@
-package tuan1;
+
 
 class Temp{
 	
