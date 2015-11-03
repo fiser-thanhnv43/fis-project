@@ -1,0 +1,71 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	ket qua : <span id="ketqua" value="0">0</span></br>
+	<input type="button" id="1" value="1" onclick="run1()"/>
+	<input type="button" id="2" value="2" onclick="run2()"/>
+	<input type="button" id="3" value="3" onclick="run3()"/></br>
+	<input type="button" id="4" value="4" onclick="run4()"/>
+	<input type="button" id="5" value="5" onclick="run5()"/>
+	<input type="button" id="6" value="6" onclick="run6()"/></br>
+	<input type="button" id="7" value="7" onclick="run7()"/>
+	<input type="button" id="8" value="8" onclick="run8()"/>
+	<input type="button" id="9" value="9" onclick="run9()"/></br>
+	<input type="button" id="clear" value="clear" onclick="clear1()"/>
+</body>
+<script>
+function clear1(){
+	$('#ketqua').val('0');
+	$('#ketqua').text("0");
+	$('#ketqua').css({'color':'black'});
+}
+function run1(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 1);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'#1FE7F5'});
+}
+function run9(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 9);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'blue'});
+}
+function run2(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 2);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'black'});
+}
+function run3(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 3);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'#1FE7F5'});
+}
+function run4(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 4);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'#F217B0'});
+}
+function run5(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 5);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'blue'});
+}
+function run6(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 6);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'black'});
+}
+function run7(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 7);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'#1FE7F5'});
+}
+function run8(){	
+	$('#ketqua').val( new Number( $('#ketqua').val() ) + 8);
+	$('#ketqua').text( $('#ketqua').val() );
+	$('#ketqua').css({'color':'#F217B0'});
+}
+
+</script>
+</html>
