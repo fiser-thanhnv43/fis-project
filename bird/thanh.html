@@ -1,0 +1,122 @@
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+	$(function(){
+		const SL = 6; // so luong bird ....
+		function Score(x){
+			score = jQuery('<span id="score" v="0">0</span>');
+			score.css({
+				position:'absolute',
+				left:x+'px',
+				top:'80px',
+				color:'red',
+				size:'50px'
+			});
+			return score;
+		}
+		function Bird(xBird, yBird, speed){
+			bird = jQuery("<img src='bird.jpg' class='bird' id='0' height='70px' x='0', y='0', speed='0'/>");
+			bird.css({
+				position: 'absolute',
+				left:xBird+'px',
+				top:yBird+"px"
+			});
+			bird.attr("y", yBird+"");
+			bird.attr("x", xBird+"");
+			bird.attr("speed", speed+"");
+			return bird;
+		};
+		var reset = jQuery('<input type="reset" value="reset"/>');
+		reset.css({
+			position:'absolute',
+			right:'100px',
+			top:'80px',
+			color:'green'
+		});
+		var birds = [SL];
+		var scores = [SL]// tao doi tuong Score.....
+		background = jQuery('<div><img id="background" x="0" height="600px" width="1300px" src="background.jpg"/></div>');
+		
+		$(document.body).append(background);
+		background.append(reset);
+		for(var i = 0; i < SL; i++){
+			var speed = Math.random()*2 + 1;
+			birds[i] = new Bird((i+1)*150, 100+(i+1)*20, speed);
+			birds[i].attr('id', i+"");
+			scores[i] = new Score(200 + i*150);
+			birdClick(birds[i], i);
+		}
+		for(var i = 0; i < SL; i++){
+			background.append(birds[i]);
+			background.append(scores[i]);
+		}
+		
+		// cach cua ban HungCT ----
+		function birdClick(bird, i){
+			bird.on("click", function(){
+				move(birds[i], -200);
+			});
+		}
+		//-------------------------
+		function die(bird, score){
+			var y = parseInt(bird.attr('y'));
+			//var v = parseInt(score.attr('v'));
+			if(y >= 535){
+				//alert("die");
+				//move(bird, -600);
+				bird.css({
+					top:'530'
+				});
+				//v--;
+				//score.attr('v', v+"");
+				score.text("-1");
+			}
+		}
+		function move(bird, pos){
+			var y = parseInt(bird.attr('y'));
+			var newY = y + pos;
+			bird.attr("y", newY);
+			bird.css({
+				top:newY+"px"
+			});
+		}
+		function bgMove(pos){
+			var x = parseInt($('#background').attr('x'));
+			x--;
+			$('#background').css({
+				left:x+"px"
+			});
+			background.attr('x', x+"");
+		}
+		
+		reset.click(function(){
+			for(var i = 0; i < SL; i++){
+				var speed = Math.random()*2 + 1;
+				birds[i].css({
+					left:(i+1)*150+"px",
+					top:100+(i+1)*20+"px"
+				});
+				birds[i].attr('speed', speed+"");
+				birds[i].attr('x', (i+1)*150+"");
+				birds[i].attr('y', 100+(i+1)*20+"");
+				scores[i].text("0");
+				scores[i].attr('v', '0');
+			}
+		});
+		setInterval(function(){
+			for(var i = 0; i < SL; i++){
+				var speed = parseInt(birds[i].attr('speed'));
+				move(birds[i], speed);
+				die(birds[i], scores[i]);
+			}
+			bgMove(1);
+		},20);
+	});
+	
+</script>
+</html>
